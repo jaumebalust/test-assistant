@@ -2,6 +2,8 @@ import * as fs from 'fs';
 export async function findFile(directoryPath: string, fileName: string,subDirectory = false): Promise<string | null> {
     const files = await fs.promises.readdir(directoryPath);
 
+    console.log('Looking for file: ' + fileName + ' in directory: ' + directoryPath)
+
     const fileFound = files.find(file => file === fileName);
 
     if (fileFound && subDirectory) {
