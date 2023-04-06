@@ -2,4 +2,4 @@
 
 var myLibrary = require('../dist/index.js');
 
-
+myLibrary.initTestAssistant();
