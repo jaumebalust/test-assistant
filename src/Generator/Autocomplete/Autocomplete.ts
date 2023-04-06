@@ -11,7 +11,7 @@ export async function getCompletions(line: string): Promise<string[]> {
 
 // all js files, but don't look in node_modules
         const jsfiles = globSync(`${directoryPath}/**/*`,
-            {ignore: ['node_modules/**','**/node_modules/**']})
+            {ignore: ['node_modules/**',process.cwd()+'node_modules/**']})
 
         //get last part of the path
         const lastParts = jsfiles.map((file) => file.split('/').pop());

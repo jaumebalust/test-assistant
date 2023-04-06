@@ -17,6 +17,16 @@ export async function findFile(directoryPath: string, fileName: string,subDirect
         const filePath = `${directoryPath}/${file}`;
         const fileStat = await fs.promises.stat(filePath);
 
+        if (filePath.indexOf('node_modules') > -1
+            || filePath.indexOf('dist') > -1
+            || filePath.indexOf('build') > -1
+            || filePath.indexOf('out') > -1
+            || filePath.indexOf('coverage') > -1
+            || filePath.indexOf('idea') > -1
+            || filePath.indexOf('.github') > -1
+            || filePath.indexOf('.git') > -1) {
+            continue;
+        }
         if (fileStat.isDirectory()) {
             const subFileFound = await findFile(filePath, fileName,true);
             if (subFileFound && subDirectory) {

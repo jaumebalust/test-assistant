@@ -20,7 +20,7 @@ function getCompletions(line) {
             const lastSpaceIndex = line.lastIndexOf(' ');
             const directoryPath = lastSpaceIndex === -1 ? '.' : line.slice(0, lastSpaceIndex);
             // all js files, but don't look in node_modules
-            const jsfiles = (0, glob_1.globSync)(`${directoryPath}/**/*`, { ignore: 'node_modules/**' });
+            const jsfiles = (0, glob_1.globSync)(`${directoryPath}/**/*`, { ignore: ['node_modules/**', process.cwd() + 'node_modules/**'] });
             //get last part of the path
             const lastParts = jsfiles.map((file) => file.split('/').pop());
             //filter out all files that don't match the last part of the path

@@ -1,13 +1,13 @@
 {
   "name": "@jaumebalust/test-assistant",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Because, let's face it. You never write enough tests...",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "./node_modules/.bin/vitest",
     "generate-tests": "ts-node src/index.ts src/exampleFiles/molas.ts",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/start.ts"
   },
   "bin": {
     "test-assistant": "./bin/demo-global.js"
