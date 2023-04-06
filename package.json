@@ -1,7 +1,7 @@
 {
-  "name": "test-assistant",
+  "name": "@jaumebalust/test-assistant",
   "version": "1.0.0",
-  "description": "",
+  "description": "Because, let's face it. You never write enough tests...",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -13,7 +13,7 @@
     "generate-tests": "dist/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jimmy",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.3",
@@ -29,5 +29,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaumebalust/test-assistant.git"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/jaumebalust/test-assistant/issues"
+  },
+  "homepage": "https://github.com/jaumebalust/test-assistant#readme"
 }
