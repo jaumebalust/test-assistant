@@ -1,0 +1,33 @@
+{
+  "name": "test-assistant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "./node_modules/.bin/vitest",
+    "generate-tests": "ts-node src/index.ts src/exampleFiles/molas.ts",
+    "start": "ts-node src/index.ts"
+  },
+  "bin": {
+    "generate-tests": "dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "glob": "^9.3.4",
+    "openai": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.3",
+    "vitest": "^0.29.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaumebalust/test-assistant.git"
+  }
+}
