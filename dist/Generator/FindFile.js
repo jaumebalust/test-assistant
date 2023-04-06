@@ -37,6 +37,7 @@ const fs = __importStar(require("fs"));
 function findFile(directoryPath, fileName, subDirectory = false) {
     return __awaiter(this, void 0, void 0, function* () {
         const files = yield fs.promises.readdir(directoryPath);
+        console.log('Looking for file: ' + fileName + ' in directory: ' + directoryPath);
         const fileFound = files.find(file => file === fileName);
         if (fileFound && subDirectory) {
             return fileFound;

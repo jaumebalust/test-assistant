@@ -56,7 +56,7 @@ function initTestAssistant() {
     rl.question('Enter a file name: ', (inputString) => __awaiter(this, void 0, void 0, function* () {
         console.log(`You entered: ${inputString}`);
         //get current directory
-        const directoryPath = __dirname;
+        const directoryPath = process.cwd();
         //find file in whole directory
         const fileFound = yield (0, FindFile_1.findFile)(directoryPath, inputString);
         console.log(`File found: ${fileFound}`);

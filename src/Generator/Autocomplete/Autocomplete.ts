@@ -10,7 +10,8 @@ export async function getCompletions(line: string): Promise<string[]> {
         const directoryPath = lastSpaceIndex === -1 ? '.' : line.slice(0, lastSpaceIndex);
 
 // all js files, but don't look in node_modules
-        const jsfiles = globSync(`${directoryPath}/**/*`, {ignore: 'node_modules/**'})
+        const jsfiles = globSync(`${directoryPath}/**/*`,
+            {ignore: ['node_modules/**','**/node_modules/**']})
 
         //get last part of the path
         const lastParts = jsfiles.map((file) => file.split('/').pop());

@@ -8,6 +8,11 @@ import {getCompletions} from "./Generator/Autocomplete/Autocomplete";
 
 dotenv.config({path: __dirname + '/../.env'});
 
+//check that the api key is set
+if (!process.env.OPENAI_API_KEY) {
+    console.error("OPENAI_API_KEY is not set");
+    process.exit(1);
+}
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -29,13 +34,14 @@ export function initTestAssistant(){
         console.log(`You entered: ${inputString}`);
 
         //get current directory
-        const directoryPath = __dirname;
+        const directoryPath = process.cwd();
         //find file in whole directory
         const fileFound = await findFile(directoryPath, inputString);
 
         console.log(`File found: ${fileFound}`);
         if (fileFound === null) {
             console.log("Sorry, file not found");
+            rl.close();
             return;
         }
 
