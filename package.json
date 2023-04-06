@@ -1,6 +1,6 @@
 {
   "name": "@jaumebalust/test-assistant",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Because, let's face it. You never write enough tests...",
   "main": "dist/index.js",
   "scripts": {
