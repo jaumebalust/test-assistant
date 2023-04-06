@@ -48,6 +48,16 @@ function findFile(directoryPath, fileName, subDirectory = false) {
         for (const file of files) {
             const filePath = `${directoryPath}/${file}`;
             const fileStat = yield fs.promises.stat(filePath);
+            if (filePath.indexOf('node_modules') > -1
+                || filePath.indexOf('dist') > -1
+                || filePath.indexOf('build') > -1
+                || filePath.indexOf('out') > -1
+                || filePath.indexOf('coverage') > -1
+                || filePath.indexOf('idea') > -1
+                || filePath.indexOf('.github') > -1
+                || filePath.indexOf('.git') > -1) {
+                continue;
+            }
             if (fileStat.isDirectory()) {
                 const subFileFound = yield findFile(filePath, fileName, true);
                 if (subFileFound && subDirectory) {
