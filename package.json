@@ -10,8 +10,9 @@
     "start": "ts-node src/index.ts"
   },
   "bin": {
-    "generate-tests": "dist/index.js"
+    "test-assistant": "./bin/demo-global.js"
   },
+  "preferGlobal": true,
   "keywords": [],
   "author": "Jimmy",
   "license": "MIT",

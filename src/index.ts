@@ -14,33 +14,36 @@ const configuration = new Configuration({
 });
 export const openai = new OpenAIApi(configuration);
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    completer: async (line: string) => {
-        const completions = await getCompletions(line);
-        return [completions, line];
-    }
-});
+export function initTestAssistant(){
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+        completer: async (line: string) => {
+            const completions = await getCompletions(line);
+            return [completions, line];
+        }
+    });
 
 
-rl.question('Enter a file name: ', async (inputString: string) => {
-    console.log(`You entered: ${inputString}`);
+    rl.question('Enter a file name: ', async (inputString: string) => {
+        console.log(`You entered: ${inputString}`);
 
-    //get current directory
-    const directoryPath = __dirname;
-    //find file in whole directory
-    const fileFound = await findFile(directoryPath, inputString);
+        //get current directory
+        const directoryPath = __dirname;
+        //find file in whole directory
+        const fileFound = await findFile(directoryPath, inputString);
 
-    console.log(`File found: ${fileFound}`);
-    if (fileFound === null) {
-        console.log("Sorry, file not found");
-        return;
-    }
+        console.log(`File found: ${fileFound}`);
+        if (fileFound === null) {
+            console.log("Sorry, file not found");
+            return;
+        }
 
-    // Call the generateTestsForFile function with the specified file path
-    generateTestsForFile(fileFound);
-    rl.close();
-});
+        // Call the generateTestsForFile function with the specified file path
+        generateTestsForFile(fileFound);
+        rl.close();
+    });
+}
+
 
 
