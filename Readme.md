@@ -7,7 +7,7 @@ Test assistant to the rescue.
 ## Installation
 Run in your terminal:
 ```
-npm i -g test-assistant
+npm i -g @jaumebalust/test-assistant
 ```
 Add the ENV variable to your .bashrc or .zshrc file:
 ``` 
